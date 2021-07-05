@@ -95,7 +95,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "fehead"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an **amazing** person."
   location         : "Somewhere"
@@ -278,6 +278,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
-      share: true
+      comments: true
+      share: false
       related: true

@@ -42,6 +42,16 @@ layout: default
         {% endif %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+        <div>
+			<script src="https://utteranc.es/client.js"
+					repo="fehead/fehead.github.io"
+					issue-term="pathname"
+					label="Comment"
+					theme="github-light"
+					crossorigin="anonymous"
+					async>
+			</script>
+		</div>
       </section>
 
       <footer class="page__meta">

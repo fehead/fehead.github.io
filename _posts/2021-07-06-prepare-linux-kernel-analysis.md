@@ -292,5 +292,9 @@ $ vim
 
 ## 참조사이트
 * [Iamroot ARM Kernel 분석 12차 D조][iamroot_utils]
+* [문c 블로그][moon-c-blog]
+* [류호은님 블로그][PR1ME's-blog]
 
+[PR1Me's-blog]:	https://www.notion.so/PR1ME-s-Blog-21ccc53f274a4a728ee2a5c9bb3baa8c
 [iamroot_utils]:	https://github.com/norux/iamroot_utils
+[moon-c-blog]:	http://jake.dothome.co.kr/

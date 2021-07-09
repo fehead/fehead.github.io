@@ -14,6 +14,9 @@ $ git clone https://github.com/iamroot18/5.10.git
 # arm64 컴파일러 설치
 
 ```sh
+# debian 계열
+$ sudo apt install gcc-aarch64-linux-gnu
+
 # arch linux 계열
 $ sudo pacman -S aarch64-linux-gnu-gcc
 ```

@@ -12,7 +12,7 @@ categories: linux kernel
 * Debian 계열
 
 ```sh
-$ sudo apt vim git ctags cscope
+$ sudo apt install vim git ctags cscope
 ```
 
 * ArchLinux 계열

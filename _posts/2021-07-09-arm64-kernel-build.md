@@ -8,7 +8,7 @@ categories: linux kernel iamroot
 ```sh
 $ mkdir -p ~/git
 $ cd ~/git
-$ git clone https://github.com/iamroot18/5.10.git
+$ git clone -b mnth https://github.com/iamroot18/5.10.git
 ```
 
 # arm64 컴파일러 설치

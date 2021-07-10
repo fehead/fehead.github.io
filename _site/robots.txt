@@ -1,1 +1,4 @@
-Sitemap: https://fehead.github.io//sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: http://fehead.github.io/sitemap.xml

@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://fehead.github.io//jekyll/test/test-post/</loc>
-<lastmod>2021-07-04T20:38:00+09:00</lastmod>
+<loc>https://fehead.github.io//github/test-post/</loc>
+<lastmod>2021-07-06T03:43:00+09:00</lastmod>
+</url>
+<url>
+<loc>https://fehead.github.io//linux/kernel/prepare-linux-kernel-analysis/</loc>
+<lastmod>2021-07-06T21:15:00+09:00</lastmod>
+</url>
+<url>
+<loc>https://fehead.github.io//linux/kernel/iamroot/arm64-kernel-build/</loc>
+<lastmod>2021-07-09T22:43:00+09:00</lastmod>
+</url>
+<url>
+<loc>https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th/</loc>
+<lastmod>2021-07-11T00:23:00+09:00</lastmod>
 </url>
 <url>
 <loc>https://fehead.github.io//</loc>

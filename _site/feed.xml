@@ -1,12 +1,1121 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://fehead.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://fehead.github.io//" rel="alternate" type="text/html" /><updated>2021-07-05T13:49:00+09:00</updated><id>https://fehead.github.io//feed.xml</id><title type="html">FeHead</title><subtitle>Linux Kernel</subtitle><author><name>fehead</name></author><entry><title type="html">Welcome to Jekyll!</title><link href="https://fehead.github.io//jekyll/test/test-post/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-07-04T20:38:00+09:00</published><updated>2021-07-04T20:38:00+09:00</updated><id>https://fehead.github.io//jekyll/test/test-post</id><content type="html" xml:base="https://fehead.github.io//jekyll/test/test-post/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://fehead.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://fehead.github.io//" rel="alternate" type="text/html" /><updated>2021-07-10T22:07:02+09:00</updated><id>https://fehead.github.io//feed.xml</id><title type="html">FeHead</title><subtitle>Linux Kernel</subtitle><author><name>fehead</name></author><entry><title type="html">IAMROOT 18차 스터디 7차</title><link href="https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th/" rel="alternate" type="text/html" title="IAMROOT 18차 스터디 7차" /><published>2021-07-11T00:23:00+09:00</published><updated>2021-07-11T00:23:00+09:00</updated><id>https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th</id><content type="html" xml:base="https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th/">&lt;h1 id=&quot;arm-system-developers-guide&quot;&gt;ARM System Developer’s Guide&lt;/h1&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;h2 id=&quot;1장-arm-embedded-systems&quot;&gt;1장 ARM Embedded Systems&lt;/h2&gt;
+&lt;h3 id=&quot;cisc-vs-risc&quot;&gt;CISC vs RISC&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;명령서 사이즈
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; CISC : nByte 가변크기
+ RISC : 2, 4, 8byte 고정크기
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;BUS - 7page
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  AHB -&amp;gt; AXI
+  APB -&amp;gt; ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Memory remapping - 14page&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;h2 id=&quot;2장-arm-processor-fundamentals&quot;&gt;2장 ARM Processor Fundamentals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;img src=&quot;/assets/img/21/07/ARM core dataflow model.png&quot; alt=&quot;ARM core dataflow model&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;ALU (arithmetic logic unit)&lt;/li&gt;
+  &lt;li&gt;MAC (multiply-accumulate unit)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Registers
+ 	R0 ~ R12, R13(sp), R14(lr), R15(pc)
+ 	cpsr, spsr(the current and saved program status registers)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Current Program Status Register
+ &lt;img src=&quot;/assets/img/21/07/cpsr.png&quot; alt=&quot;cpsr&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Banked Registers - 24page
+  &lt;img src=&quot;/assets/img/21/07/Banked Registers.png&quot; alt=&quot;Banked Registers&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://recipes.egloos.com/4986854&quot;&gt;ARM Register와 Context&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.arm.com/documentation/den0024/a/ARMv8-Registers&quot;&gt;ARMv8 Registers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.arm.com/documentation/den0024/a/ARMv8-Registers/AArch64-special-registers&quot;&gt;AArch64 special registers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.arm.com/documentation/den0024/a/ARMv8-Registers/Processor-state&quot;&gt;AArch64 Processor state&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Condition Flags
+  &lt;img src=&quot;/assets/img/21/07/Condition Flags.png&quot; alt=&quot;Condition Flags&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Condition mnemonics
+ &lt;img src=&quot;/assets/img/21/07/Condition mnemonics.png&quot; alt=&quot;Condition mnemonics&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PIPELINE
+ &lt;img src=&quot;/assets/img/21/07/Pipelined instruction sequence.png&quot; alt=&quot;PIPELINE&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Core Extensions&lt;/li&gt;
+  &lt;li&gt;Coprocessors&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;h2 id=&quot;3장-introduction-to-the-arm-instruction-set&quot;&gt;3장 Introduction to the ARM Instruction Set&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;ARM instruction set
+ &lt;img src=&quot;/assets/img/21/07/ARM instruction set 1.png&quot; alt=&quot;ARM instruction set 1&quot; /&gt;
+ &lt;img src=&quot;/assets/img/21/07/ARM instruction set 2.png&quot; alt=&quot;ARM instruction set 2&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Move Instructions
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  MOV	Rd, N
+  MVN	Rd, N
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Barrel shifter
+ &lt;img src=&quot;/assets/img/21/07/Barrel shifter and ALU.png&quot; alt=&quot;Barrel shifter and ALU&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Barrel shifter operations
+ &lt;img src=&quot;/assets/img/21/07/Barrel shifter operations.png&quot; alt=&quot;Barrel shifter operations&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Arithmetic Instructions&lt;/li&gt;
+  &lt;li&gt;Comparison Instructions
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; CMN	ﬂags set as a result of Rn + N
+ CMP	ﬂags set as a result of Rn − N
+ TEQ	ﬂags set as a result of Rn ∧ N
+ TST	ﬂags set as a result of Rn &amp;amp; N
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Multiply Instructions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; MLA
+ MUL
+ 
+ SMLAL
+ SMULL
+ UMLAL
+ UMULL
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>fehead</name></author><category term="jekyll" /><category term="test" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;ul&gt;
+  &lt;li&gt;Branch Instructions
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; B	branch			pc = label
+ BL	branch with link	B + lr = address of the next instruction after the BL
+ BX	branch exchange		pc = Rm &amp;amp; 0xfffffffe, T = Rm &amp;amp; 1
+ BXL	branch exchange with link	BX + lr = address of the next instruction after the BLX
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Load-Store Instructions
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; LDR
+ STR
+ LDRB
+ STRB
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;arm64-linux-510-kernel-분석&quot;&gt;ARM64 linux 5.10 kernel 분석&lt;/h1&gt;
+&lt;h2 id=&quot;heads-분석&quot;&gt;head.S 분석&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;head.S 파일 들어가기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;ts&lt;/span&gt; head&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;S
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;커널에서의 링크 스크립트: vmlix.lds.S는?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;.section 문법 
+ &lt;a href=&quot;https://sourceware.org/binutils/docs/as/Section.html&quot;&gt;GAS section문법&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;“ax”의 의미&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; what does the &quot;aw&quot; flag mean? It means that the section is allocatable (i.e. it&apos;s loaded to the memory at runtime) and writable (and readable, of course).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; The .section directive instructs the assembler to assemble a new code or data section.
+
+ Flags provide information about the section. Available section flags include the following:
+
+    a specifies that the section is allocatable.
+    x specifies that the section is executable.
+    w specifies that the section is writable.
+    S specifies that the section contains null-terminated strings.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;head.S&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-S highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;72&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#ifdef CONFIG_EFI&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;73&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;74&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;This&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instruction&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;has&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;no&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meaningful&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;effect&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;that&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;75&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;its&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;opcode&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MZ&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signature&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UEFI.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;76&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;77&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#0x16&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;primary_entry&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;79&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#else&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;primary_entry&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                   &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;branch&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;81&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.long&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reserved&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;83&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.quad&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RAM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;little&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endian&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;84&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;le64sym&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel_size_le&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Effective&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;little&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endian&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;le64sym&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel_flags_le&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Informative&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;little&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endian&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;86&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.quad&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reserved&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;87&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.quad&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reserved&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;88&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.quad&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reserved&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;89&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.ascii&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ARM64_IMAGE_MAGIC&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Magic&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ARM\x64&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#ifdef CONFIG_EFI&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;91&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.long&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pe_header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Offset&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PE&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010000000 &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010000040 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+
+vmlinux:     file format elf64-littleaarch64
+
+
+Disassembly of section .head.text:
+
+ffff800010000000 &amp;lt;_text&amp;gt;:
+ffff800010000000:	91005a4d 	add	x13, x18, &lt;span class=&quot;c&quot;&gt;#0x16&lt;/span&gt;
+ffff800010000004:	14563fff 	b	ffff800011590000 &amp;lt;primary_entry&amp;gt;
+	...
+ffff800010000010:	01ea0000 	.word	0x01ea0000
+ffff800010000014:	00000000 	.word	0x00000000
+ffff800010000018:	0000000a 	.word	0x0000000a
+	...
+ffff800010000038:	644d5241 	.word	0x644d5241	&lt;span class=&quot;c&quot;&gt;# &quot;ARM\x64&quot;&lt;/span&gt;
+ffff80001000003c:	00000040 	.word	0x00000040
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010000000 &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010000050 &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; vmlinux
+
+vmlinux:     file format elf64-littleaarch64
+
+Contents of section .head.text:
+ ffff800010000000 4d5a0091 ff3f5614 00000000 00000000  MZ...?V.........
+ ffff800010000010 0000ea01 00000000 0a000000 00000000  ................
+ ffff800010000020 00000000 00000000 00000000 00000000  ................
+ ffff800010000030 00000000 00000000 41524d64 40000000  ........ARMd@...
+ ffff800010000040 50450000 64aa0200 00000000 00000000  PE..d...........
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sourceware.org/binutils/docs/as/Align.html&quot;&gt;GAS align&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>fehead</name></author><category term="linux" /><category term="kernel" /><category term="iamroot" /><summary type="html">ARM System Developer’s Guide</summary></entry><entry><title type="html">ARM64 리눅스 커널 빌드</title><link href="https://fehead.github.io//linux/kernel/iamroot/arm64-kernel-build/" rel="alternate" type="text/html" title="ARM64 리눅스 커널 빌드" /><published>2021-07-09T22:43:00+09:00</published><updated>2021-07-09T22:43:00+09:00</updated><id>https://fehead.github.io//linux/kernel/iamroot/arm64-kernel-build</id><content type="html" xml:base="https://fehead.github.io//linux/kernel/iamroot/arm64-kernel-build/">&lt;h1 id=&quot;linux-kernel-가져오기&quot;&gt;linux kernel 가져오기&lt;/h1&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; ~/git
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; mnth https://github.com/iamroot18/5.10.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;arm64-컴파일러-설치&quot;&gt;arm64 컴파일러 설치&lt;/h1&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# debian 계열&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gcc-aarch64-linux-gnu
+
+&lt;span class=&quot;c&quot;&gt;# arch linux 계열&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pacman &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; aarch64-linux-gnu-gcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;cross-컴파일-환경-설정&quot;&gt;CROSS 컴파일 환경 설정&lt;/h1&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ARCH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm64
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CROSS_COMPILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;aarch64-linux-gnu-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;커널-컴파일&quot;&gt;커널 컴파일&lt;/h1&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make defconfig
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nproc&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;커널-확인&quot;&gt;커널 확인&lt;/h1&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls &lt;/span&gt;vmlinux System.map
+System.map  vmlinux
+&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;커널-시작-코드-disassemble&quot;&gt;커널 시작 코드 disassemble&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;arch/arm64/kernel/head.S 파일&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-S highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# vim arch/arm64/kernel/head.S&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DO&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NOT&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MODIFY.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expected&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linux&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;boot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loaders.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#ifdef CONFIG_EFI&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;This&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instruction&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;has&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;no&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meaningful&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;effect&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;that&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;its&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;opcode&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MZ&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signature&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UEFI.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#0x16&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;primary_entry&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#else&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;primary_entry&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                   &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;branch&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.long&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reserved&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.quad&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RAM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;little&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endian&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;le64sym&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel_size_le&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Effective&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;little&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endian&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;le64sym&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel_flags_le&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Informative&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;little&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endian&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.quad&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reserved&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.quad&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reserved&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.quad&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reserved&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.ascii&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ARM64_IMAGE_MAGIC&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;               &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Magic&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;_head 심볼 찾기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; _head$&quot;&lt;/span&gt; System.map
+ffff800010000000 t _head
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;_head disassemble&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010000000 &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010000010 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff800010000000 &amp;lt;_text&amp;gt;:
+ffff800010000000:	91005a4d 	add	x13, x18, &lt;span class=&quot;c&quot;&gt;#0x16&lt;/span&gt;
+ffff800010000004:	14563fff 	b	ffff800011590000 &amp;lt;primary_entry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;_primary_entry disassemble&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; primary_entry$&quot;&lt;/span&gt; System.map
+ffff800011590000 T primary_entry
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800011590000 &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800011590100 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff800011590000 &amp;lt;primary_entry&amp;gt;:
+ffff800011590000:	94000008 	bl	ffff800011590020 &amp;lt;preserve_boot_args&amp;gt;
+ffff800011590004:	97e1efff 	bl	ffff800010e0c000 &amp;lt;el2_setup&amp;gt;
+ffff800011590008:	90ff5397 	adrp	x23, ffff800010000000 &amp;lt;_text&amp;gt;
+ffff80001159000c:	924052f7 	and	x23, x23, &lt;span class=&quot;c&quot;&gt;#0x1fffff&lt;/span&gt;
+ffff800011590010:	97e1f05d 	bl	ffff800010e0c184 &amp;lt;set_cpu_boot_mode_flag&amp;gt;
+ffff800011590014:	9400000b 	bl	ffff800011590040 &amp;lt;__create_page_tables&amp;gt;
+ffff800011590018:	97e1f1b5 	bl	ffff800010e0c6ec &amp;lt;__cpu_setup&amp;gt;
+ffff80001159001c:	17e1f0d8 	b	ffff800010e0c37c &amp;lt;__primary_switch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;비슷하게 해당 심볼 disassemble&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; preserve_boot_args$&quot;&lt;/span&gt; System.map
+ffff800011590020 t preserve_boot_args
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800011590020 &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800011590050 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff800011590020 &amp;lt;preserve_boot_args&amp;gt;:
+ffff800011590020:	aa0003f5 	mov	x21, x0
+ffff800011590024:	d0002e20 	adrp	x0, ffff800011b56000 &amp;lt;boot_args&amp;gt;
+ffff800011590028:	91000000 	add	x0, x0, &lt;span class=&quot;c&quot;&gt;#0x0&lt;/span&gt;
+ffff80001159002c:	a9000415 	stp	x21, x1, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0]
+ffff800011590030:	a9010c02 	stp	x2, x3, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0, &lt;span class=&quot;c&quot;&gt;#16]&lt;/span&gt;
+ffff800011590034:	d5033fbf 	dmb	sy
+ffff800011590038:	d2800401 	mov	x1, &lt;span class=&quot;c&quot;&gt;#0x20                  	// #32&lt;/span&gt;
+ffff80001159003c:	17aa9a00 	b	ffff80001003683c &amp;lt;__inval_dcache_area&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; __inval_dcache_area$&quot;&lt;/span&gt; System.map
+ffff80001003683c T __inval_dcache_area
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff80001003683c &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010036a00 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff80001003683c &amp;lt;__inval_dcache_area&amp;gt;:
+ffff80001003683c:	d503245f 	bti	c
+ffff800010036840:	8b000021 	add	x1, x1, x0
+ffff800010036844:	d53b0023 	mrs	x3, ctr_el0
+ffff800010036848:	d503201f 	nop
+ffff80001003684c:	d3504c63 	ubfx	x3, x3, &lt;span class=&quot;c&quot;&gt;#16, #4&lt;/span&gt;
+ffff800010036850:	d2800082 	mov	x2, &lt;span class=&quot;c&quot;&gt;#0x4                   	// #4&lt;/span&gt;
+ffff800010036854:	9ac32042 	lsl	x2, x2, x3
+ffff800010036858:	d1000443 	sub	x3, x2, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff80001003685c:	ea03003f 	tst	x1, x3
+ffff800010036860:	8a230021 	bic	x1, x1, x3
+ffff800010036864:	54000040 	b.eq	ffff80001003686c &amp;lt;__inval_dcache_area+0x30&amp;gt;  // b.none
+ffff800010036868:	d50b7e21 	dc	civac, x1
+ffff80001003686c:	ea03001f 	tst	x0, x3
+ffff800010036870:	8a230000 	bic	x0, x0, x3
+ffff800010036874:	54000060 	b.eq	ffff800010036880 &amp;lt;__inval_dcache_area+0x44&amp;gt;  // b.none
+ffff800010036878:	d50b7e20 	dc	civac, x0
+ffff80001003687c:	14000002 	b	ffff800010036884 &amp;lt;__inval_dcache_area+0x48&amp;gt;
+ffff800010036880:	d5087620 	dc	ivac, x0
+ffff800010036884:	8b020000 	add	x0, x0, x2
+ffff800010036888:	eb01001f 	cmp	x0, x1
+ffff80001003688c:	54ffffa3 	b.cc	ffff800010036880 &amp;lt;__inval_dcache_area+0x44&amp;gt;  // b.lo, b.ul, b.last
+ffff800010036890:	d5033f9f 	dsb	sy
+ffff800010036894:	d65f03c0 	ret
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; el2_setup$&quot;&lt;/span&gt; System.map
+ffff800010e0c000 T el2_setup
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010e0c000 &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010e0c200 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff800010e0c000 &amp;lt;el2_setup&amp;gt;:
+ffff800010e0c000:	d503245f 	bti	c
+ffff800010e0c004:	d50041bf 	msr	spsel, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800010e0c008:	d5384240 	mrs	x0, currentel
+ffff800010e0c00c:	f100201f 	cmp	x0, &lt;span class=&quot;c&quot;&gt;#0x8&lt;/span&gt;
+ffff800010e0c010:	540000e0 	b.eq	ffff800010e0c02c &amp;lt;el2_setup+0x2c&amp;gt;  // b.none
+ffff800010e0c014:	d2a60a00 	mov	x0, &lt;span class=&quot;c&quot;&gt;#0x30500000            	// #810549248&lt;/span&gt;
+ffff800010e0c018:	f2810000 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x800&lt;/span&gt;
+ffff800010e0c01c:	d5181000 	msr	sctlr_el1, x0
+ffff800010e0c020:	5281c220 	mov	w0, &lt;span class=&quot;c&quot;&gt;#0xe11                 	// #3601&lt;/span&gt;
+ffff800010e0c024:	d5033fdf 	isb
+ffff800010e0c028:	d65f03c0 	ret
+ffff800010e0c02c:	d2a618a0 	mov	x0, &lt;span class=&quot;c&quot;&gt;#0x30c50000            	// #818216960&lt;/span&gt;
+ffff800010e0c030:	f2810600 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x830&lt;/span&gt;
+ffff800010e0c034:	d51c1000 	msr	sctlr_el2, x0
+ffff800010e0c038:	d5380722 	mrs	x2, id_aa64mmfr1_el1
+ffff800010e0c03c:	d3482c42 	ubfx	x2, x2, &lt;span class=&quot;c&quot;&gt;#8, #4&lt;/span&gt;
+ffff800010e0c040:	d2e02000 	mov	x0, &lt;span class=&quot;c&quot;&gt;#0x100000000000000     	// #72057594037927936&lt;/span&gt;
+ffff800010e0c044:	f2c06000 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x300, lsl #32&lt;/span&gt;
+ffff800010e0c048:	f2b00000 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x8000, lsl #16&lt;/span&gt;
+ffff800010e0c04c:	f2800000 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x0&lt;/span&gt;
+ffff800010e0c050:	b4000082 	cbz	x2, ffff800010e0c060 &amp;lt;set_hcr&amp;gt;
+ffff800010e0c054:	d2c00080 	mov	x0, &lt;span class=&quot;c&quot;&gt;#0x400000000           	// #17179869184&lt;/span&gt;
+ffff800010e0c058:	f2b10000 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x8800, lsl #16&lt;/span&gt;
+ffff800010e0c05c:	f2800000 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x0&lt;/span&gt;
+
+ffff800010e0c060 &amp;lt;set_hcr&amp;gt;:
+ffff800010e0c060:	d51c1100 	msr	hcr_el2, x0
+ffff800010e0c064:	d5033fdf 	isb
+ffff800010e0c068:	b5000082 	cbnz	x2, ffff800010e0c078 &amp;lt;set_hcr+0x18&amp;gt;
+ffff800010e0c06c:	d53ce100 	mrs	x0, cnthctl_el2
+ffff800010e0c070:	b2400400 	orr	x0, x0, &lt;span class=&quot;c&quot;&gt;#0x3&lt;/span&gt;
+ffff800010e0c074:	d51ce100 	msr	cnthctl_el2, x0
+ffff800010e0c078:	d51ce07f 	msr	cntvoff_el2, xzr
+ffff800010e0c07c:	d5380400 	mrs	x0, id_aa64pfr0_el1
+ffff800010e0c080:	d3586c00 	ubfx	x0, x0, &lt;span class=&quot;c&quot;&gt;#24, #4&lt;/span&gt;
+ffff800010e0c084:	b4000120 	cbz	x0, ffff800010e0c0a8 &amp;lt;set_hcr+0x48&amp;gt;
+ffff800010e0c088:	d53cc9a0 	mrs	x0, s3_4_c12_c9_5
+ffff800010e0c08c:	b2400000 	orr	x0, x0, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800010e0c090:	b27d0000 	orr	x0, x0, &lt;span class=&quot;c&quot;&gt;#0x8&lt;/span&gt;
+ffff800010e0c094:	d51cc9a0 	msr	s3_4_c12_c9_5, x0
+ffff800010e0c098:	d5033fdf 	isb
+ffff800010e0c09c:	d53cc9a0 	mrs	x0, s3_4_c12_c9_5
+ffff800010e0c0a0:	36000040 	tbz	w0, &lt;span class=&quot;c&quot;&gt;#0, ffff800010e0c0a8 &amp;lt;set_hcr+0x48&amp;gt;&lt;/span&gt;
+ffff800010e0c0a4:	d51ccb1f 	msr	s3_4_c12_c11_0, xzr
+ffff800010e0c0a8:	d5380000 	mrs	x0, midr_el1
+ffff800010e0c0ac:	d53800a1 	mrs	x1, mpidr_el1
+ffff800010e0c0b0:	d51c0000 	msr	vpidr_el2, x0
+ffff800010e0c0b4:	d51c00a1 	msr	vmpidr_el2, x1
+ffff800010e0c0b8:	d51c117f 	msr	hstr_el2, xzr
+ffff800010e0c0bc:	d5380501 	mrs	x1, id_aa64dfr0_el1
+ffff800010e0c0c0:	93482c20 	sbfx	x0, x1, &lt;span class=&quot;c&quot;&gt;#8, #4&lt;/span&gt;
+ffff800010e0c0c4:	f100041f 	cmp	x0, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800010e0c0c8:	5400006b 	b.lt	ffff800010e0c0d4 &amp;lt;set_hcr+0x74&amp;gt;  // b.tstop
+ffff800010e0c0cc:	d53b9c00 	mrs	x0, pmcr_el0
+ffff800010e0c0d0:	d34b3c00 	ubfx	x0, x0, &lt;span class=&quot;c&quot;&gt;#11, #5&lt;/span&gt;
+ffff800010e0c0d4:	9a80b3e3 	csel	x3, xzr, x0, lt  // lt &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; tstop
+ffff800010e0c0d8:	d3608c20 	ubfx	x0, x1, &lt;span class=&quot;c&quot;&gt;#32, #4&lt;/span&gt;
+ffff800010e0c0dc:	b4000160 	cbz	x0, ffff800010e0c108 &amp;lt;set_hcr+0xa8&amp;gt;
+ffff800010e0c0e0:	b5000122 	cbnz	x2, ffff800010e0c104 &amp;lt;set_hcr+0xa4&amp;gt;
+ffff800010e0c0e4:	d5389ae4 	mrs	x4, pmbidr_el1
+ffff800010e0c0e8:	927c0084 	and	x4, x4, &lt;span class=&quot;c&quot;&gt;#0x10&lt;/span&gt;
+ffff800010e0c0ec:	b5000064 	cbnz	x4, ffff800010e0c0f8 &amp;lt;set_hcr+0x98&amp;gt;
+ffff800010e0c0f0:	d2800a04 	mov	x4, &lt;span class=&quot;c&quot;&gt;#0x50                  	// #80&lt;/span&gt;
+ffff800010e0c0f4:	d51c9904 	msr	pmscr_el2, x4
+ffff800010e0c0f8:	d2860001 	mov	x1, &lt;span class=&quot;c&quot;&gt;#0x3000                	// #12288&lt;/span&gt;
+ffff800010e0c0fc:	aa010063 	orr	x3, x3, x1
+ffff800010e0c100:	14000002 	b	ffff800010e0c108 &amp;lt;set_hcr+0xa8&amp;gt;
+ffff800010e0c104:	b2720063 	orr	x3, x3, &lt;span class=&quot;c&quot;&gt;#0x4000&lt;/span&gt;
+ffff800010e0c108:	d51c1123 	msr	mdcr_el2, x3
+ffff800010e0c10c:	d5380721 	mrs	x1, id_aa64mmfr1_el1
+ffff800010e0c110:	d3504c20 	ubfx	x0, x1, &lt;span class=&quot;c&quot;&gt;#16, #4&lt;/span&gt;
+ffff800010e0c114:	b4000040 	cbz	x0, ffff800010e0c11c &amp;lt;set_hcr+0xbc&amp;gt;
+ffff800010e0c118:	d518a47f 	msr	s3_0_c10_c4_3, xzr
+ffff800010e0c11c:	d51c211f 	msr	vttbr_el2, xzr
+ffff800010e0c120:	b4000082 	cbz	x2, ffff800010e0c130 &amp;lt;install_el2_stub&amp;gt;
+ffff800010e0c124:	5281c240 	mov	w0, &lt;span class=&quot;c&quot;&gt;#0xe12                 	// #3602&lt;/span&gt;
+ffff800010e0c128:	d5033fdf 	isb
+ffff800010e0c12c:	d65f03c0 	ret
+
+ffff800010e0c130 &amp;lt;install_el2_stub&amp;gt;:
+ffff800010e0c130:	d2a60a00 	mov	x0, &lt;span class=&quot;c&quot;&gt;#0x30500000            	// #810549248&lt;/span&gt;
+ffff800010e0c134:	f2810000 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x800&lt;/span&gt;
+ffff800010e0c138:	d5181000 	msr	sctlr_el1, x0
+ffff800010e0c13c:	d2867fe0 	mov	x0, &lt;span class=&quot;c&quot;&gt;#0x33ff                	// #13311&lt;/span&gt;
+ffff800010e0c140:	d51c1140 	msr	cptr_el2, x0
+ffff800010e0c144:	d5380401 	mrs	x1, id_aa64pfr0_el1
+ffff800010e0c148:	d3608c21 	ubfx	x1, x1, &lt;span class=&quot;c&quot;&gt;#32, #4&lt;/span&gt;
+ffff800010e0c14c:	b40000c1 	cbz	x1, ffff800010e0c164 &amp;lt;install_el2_stub+0x34&amp;gt;
+ffff800010e0c150:	9277f800 	and	x0, x0, &lt;span class=&quot;c&quot;&gt;#0xfffffffffffffeff&lt;/span&gt;
+ffff800010e0c154:	d51c1140 	msr	cptr_el2, x0
+ffff800010e0c158:	d5033fdf 	isb
+ffff800010e0c15c:	d2803fe1 	mov	x1, &lt;span class=&quot;c&quot;&gt;#0x1ff                 	// #511&lt;/span&gt;
+ffff800010e0c160:	d51c1201 	msr	zcr_el2, x1
+ffff800010e0c164:	d0ffffa0 	adrp	x0, ffff800010e02000 &amp;lt;__hyp_stub_vectors&amp;gt;
+ffff800010e0c168:	91000000 	add	x0, x0, &lt;span class=&quot;c&quot;&gt;#0x0&lt;/span&gt;
+ffff800010e0c16c:	d51cc000 	msr	vbar_el2, x0
+ffff800010e0c170:	d28078a0 	mov	x0, &lt;span class=&quot;c&quot;&gt;#0x3c5                 	// #965&lt;/span&gt;
+ffff800010e0c174:	d51c4000 	msr	spsr_el2, x0
+ffff800010e0c178:	d51c403e 	msr	elr_el2, x30
+ffff800010e0c17c:	5281c240 	mov	w0, &lt;span class=&quot;c&quot;&gt;#0xe12                 	// #3602&lt;/span&gt;
+ffff800010e0c180:	d69f03e0 	eret
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; set_cpu_boot_mode_flag$&quot;&lt;/span&gt; System.map
+ffff800010e0c184 t set_cpu_boot_mode_flag
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010e0c184 &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010e0c200 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff800010e0c184 &amp;lt;set_cpu_boot_mode_flag&amp;gt;:
+ffff800010e0c184:	d503245f 	bti	c
+ffff800010e0c188:	d0007fe1 	adrp	x1, ffff800011e0a000 &amp;lt;__kvm_nvhe_&lt;span class=&quot;nv&quot;&gt;$d&lt;/span&gt;+0x145c8&amp;gt;
+ffff800010e0c18c:	91200021 	add	x1, x1, &lt;span class=&quot;c&quot;&gt;#0x800&lt;/span&gt;
+ffff800010e0c190:	7138481f 	cmp	w0, &lt;span class=&quot;c&quot;&gt;#0xe12&lt;/span&gt;
+ffff800010e0c194:	54000041 	b.ne	ffff800010e0c19c &amp;lt;set_cpu_boot_mode_flag+0x18&amp;gt;  // b.any
+ffff800010e0c198:	91001021 	add	x1, x1, &lt;span class=&quot;c&quot;&gt;#0x4&lt;/span&gt;
+ffff800010e0c19c:	b9000020 	str	w0, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x1]
+ffff800010e0c1a0:	d5033fbf 	dmb	sy
+ffff800010e0c1a4:	d5087621 	dc	ivac, x1
+ffff800010e0c1a8:	d65f03c0 	ret
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; __create_page_tables$&quot;&lt;/span&gt; System.map
+ffff800011590040 t __create_page_tables
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800011590040 &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800011590200 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff800011590040 &amp;lt;__create_page_tables&amp;gt;:
+ffff800011590040:	d503245f 	bti	c
+ffff800011590044:	aa1e03fc 	mov	x28, x30
+ffff800011590048:	b00047e0 	adrp	x0, ffff800011e8d000 &amp;lt;init_pg_dir&amp;gt;
+ffff80001159004c:	d0004801 	adrp	x1, ffff800011e92000 &amp;lt;init_pg_end&amp;gt;
+ffff800011590050:	cb000021 	sub	x1, x1, x0
+ffff800011590054:	97aa99fa 	bl	ffff80001003683c &amp;lt;__inval_dcache_area&amp;gt;
+ffff800011590058:	b00047e0 	adrp	x0, ffff800011e8d000 &amp;lt;init_pg_dir&amp;gt;
+ffff80001159005c:	d0004801 	adrp	x1, ffff800011e92000 &amp;lt;init_pg_end&amp;gt;
+ffff800011590060:	cb000021 	sub	x1, x1, x0
+ffff800011590064:	a8817c1f 	stp	xzr, xzr, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0], &lt;span class=&quot;c&quot;&gt;#16&lt;/span&gt;
+ffff800011590068:	a8817c1f 	stp	xzr, xzr, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0], &lt;span class=&quot;c&quot;&gt;#16&lt;/span&gt;
+ffff80001159006c:	a8817c1f 	stp	xzr, xzr, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0], &lt;span class=&quot;c&quot;&gt;#16&lt;/span&gt;
+ffff800011590070:	a8817c1f 	stp	xzr, xzr, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0], &lt;span class=&quot;c&quot;&gt;#16&lt;/span&gt;
+ffff800011590074:	f1010021 	subs	x1, x1, &lt;span class=&quot;c&quot;&gt;#0x40&lt;/span&gt;
+ffff800011590078:	54ffff61 	b.ne	ffff800011590064 &amp;lt;__create_page_tables+0x24&amp;gt;  // b.any
+ffff80001159007c:	d280e027 	mov	x7, &lt;span class=&quot;c&quot;&gt;#0x701                 	// #1793&lt;/span&gt;
+ffff800011590080:	90ffff60 	adrp	x0, ffff80001157c000 &amp;lt;__end_rodata&amp;gt;
+ffff800011590084:	90ffc3e3 	adrp	x3, ffff800010e0c000 &amp;lt;el2_setup&amp;gt;
+ffff800011590088:	d2800605 	mov	x5, &lt;span class=&quot;c&quot;&gt;#0x30                  	// #48&lt;/span&gt;
+ffff80001159008c:	d00043c6 	adrp	x6, ffff800011e0a000 &amp;lt;__kvm_nvhe_&lt;span class=&quot;nv&quot;&gt;$d&lt;/span&gt;+0x145c8&amp;gt;
+ffff800011590090:	912040c6 	add	x6, x6, &lt;span class=&quot;c&quot;&gt;#0x810&lt;/span&gt;
+ffff800011590094:	f90000c5 	str	x5, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x6]
+ffff800011590098:	d5033fbf 	dmb	sy
+ffff80001159009c:	d5087626 	dc	ivac, x6
+ffff8000115900a0:	90ffc3e5 	adrp	x5, ffff800010e0c000 &amp;lt;el2_setup&amp;gt;
+ffff8000115900a4:	dac010a5 	clz	x5, x5
+ffff8000115900a8:	f10040bf 	cmp	x5, &lt;span class=&quot;c&quot;&gt;#0x10&lt;/span&gt;
+ffff8000115900ac:	5400012a 	b.ge	ffff8000115900d0 &amp;lt;__create_page_tables+0x90&amp;gt;  // b.tcont
+ffff8000115900b0:	f0002ea6 	adrp	x6, ffff800011b67000 &amp;lt;__compound_literal.18+0x10&amp;gt;
+ffff8000115900b4:	911160c6 	add	x6, x6, &lt;span class=&quot;c&quot;&gt;#0x458&lt;/span&gt;
+ffff8000115900b8:	f90000c5 	str	x5, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x6]
+ffff8000115900bc:	d5033fbf 	dmb	sy
+ffff8000115900c0:	d5087626 	dc	ivac, x6
+ffff8000115900c4:	d2804004 	mov	x4, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff8000115900c8:	f0002ea5 	adrp	x5, ffff800011b67000 &amp;lt;__compound_literal.18+0x10&amp;gt;
+ffff8000115900cc:	f90230a4 	str	x4, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x5, &lt;span class=&quot;c&quot;&gt;#1120]&lt;/span&gt;
+ffff8000115900d0:	f0002ea4 	adrp	x4, ffff800011b67000 &amp;lt;__compound_literal.18+0x10&amp;gt;
+ffff8000115900d4:	f9423084 	ldr	x4, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x4, &lt;span class=&quot;c&quot;&gt;#1120]&lt;/span&gt;
+ffff8000115900d8:	aa0303e5 	mov	x5, x3
+ffff8000115900dc:	90ffc3e6 	adrp	x6, ffff800010e0c000 &amp;lt;el2_setup&amp;gt;
+ffff8000115900e0:	912060c6 	add	x6, x6, &lt;span class=&quot;c&quot;&gt;#0x818&lt;/span&gt;
+ffff8000115900e4:	91400401 	add	x1, x0, &lt;span class=&quot;c&quot;&gt;#0x1, lsl #12&lt;/span&gt;
+ffff8000115900e8:	aa0103ee 	mov	x14, x1
+ffff8000115900ec:	d280000d 	mov	x13, &lt;span class=&quot;c&quot;&gt;#0x0                   	// #0&lt;/span&gt;
+ffff8000115900f0:	d367fccb 	lsr	x11, x6, &lt;span class=&quot;c&quot;&gt;#39&lt;/span&gt;
+ffff8000115900f4:	aa0403ea 	mov	x10, x4
+ffff8000115900f8:	d100054a 	sub	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff8000115900fc:	8a0a016b 	and	x11, x11, x10
+ffff800011590100:	aa0403ea 	mov	x10, x4
+ffff800011590104:	9b0d7d4a 	mul	x10, x10, x13
+ffff800011590108:	8b0a016b 	add	x11, x11, x10
+ffff80001159010c:	d367fc6a 	lsr	x10, x3, &lt;span class=&quot;c&quot;&gt;#39&lt;/span&gt;
+ffff800011590110:	aa0403ed 	mov	x13, x4
+ffff800011590114:	d10005ad 	sub	x13, x13, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590118:	8a0d014a 	and	x10, x10, x13
+ffff80001159011c:	cb0a016d 	sub	x13, x11, x10
+ffff800011590120:	aa0103ec 	mov	x12, x1
+ffff800011590124:	b240058c 	orr	x12, x12, &lt;span class=&quot;c&quot;&gt;#0x3&lt;/span&gt;
+ffff800011590128:	f82a780c 	str	x12, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0, x10, lsl &lt;span class=&quot;c&quot;&gt;#3]&lt;/span&gt;
+ffff80001159012c:	91400421 	add	x1, x1, &lt;span class=&quot;c&quot;&gt;#0x1, lsl #12&lt;/span&gt;
+ffff800011590130:	9100054a 	add	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590134:	eb0b015f 	cmp	x10, x11
+ffff800011590138:	54ffff49 	b.ls	ffff800011590120 &amp;lt;__create_page_tables+0xe0&amp;gt;  // b.plast
+ffff80001159013c:	aa0e03e0 	mov	x0, x14
+ffff800011590140:	aa0103ee 	mov	x14, x1
+ffff800011590144:	d35efccb 	lsr	x11, x6, &lt;span class=&quot;c&quot;&gt;#30&lt;/span&gt;
+ffff800011590148:	d280400a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff80001159014c:	d100054a 	sub	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590150:	8a0a016b 	and	x11, x11, x10
+ffff800011590154:	d280400a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff800011590158:	9b0d7d4a 	mul	x10, x10, x13
+ffff80001159015c:	8b0a016b 	add	x11, x11, x10
+ffff800011590160:	d35efc6a 	lsr	x10, x3, &lt;span class=&quot;c&quot;&gt;#30&lt;/span&gt;
+ffff800011590164:	d280400d 	mov	x13, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff800011590168:	d10005ad 	sub	x13, x13, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff80001159016c:	8a0d014a 	and	x10, x10, x13
+ffff800011590170:	cb0a016d 	sub	x13, x11, x10
+ffff800011590174:	aa0103ec 	mov	x12, x1
+ffff800011590178:	b240058c 	orr	x12, x12, &lt;span class=&quot;c&quot;&gt;#0x3&lt;/span&gt;
+ffff80001159017c:	f82a780c 	str	x12, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0, x10, lsl &lt;span class=&quot;c&quot;&gt;#3]&lt;/span&gt;
+ffff800011590180:	91400421 	add	x1, x1, &lt;span class=&quot;c&quot;&gt;#0x1, lsl #12&lt;/span&gt;
+ffff800011590184:	9100054a 	add	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590188:	eb0b015f 	cmp	x10, x11
+ffff80001159018c:	54ffff49 	b.ls	ffff800011590174 &amp;lt;__create_page_tables+0x134&amp;gt;  // b.plast
+ffff800011590190:	aa0e03e0 	mov	x0, x14
+ffff800011590194:	d355fccb 	lsr	x11, x6, &lt;span class=&quot;c&quot;&gt;#21&lt;/span&gt;
+ffff800011590198:	d280400a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff80001159019c:	d100054a 	sub	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff8000115901a0:	8a0a016b 	and	x11, x11, x10
+ffff8000115901a4:	d280400a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff8000115901a8:	9b0d7d4a 	mul	x10, x10, x13
+ffff8000115901ac:	8b0a016b 	add	x11, x11, x10
+ffff8000115901b0:	d355fc6a 	lsr	x10, x3, &lt;span class=&quot;c&quot;&gt;#21&lt;/span&gt;
+ffff8000115901b4:	d280400d 	mov	x13, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff8000115901b8:	d10005ad 	sub	x13, x13, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff8000115901bc:	8a0d014a 	and	x10, x10, x13
+ffff8000115901c0:	cb0a016d 	sub	x13, x11, x10
+ffff8000115901c4:	926ba86d 	and	x13, x3, &lt;span class=&quot;c&quot;&gt;#0xffffffffffe00000&lt;/span&gt;
+ffff8000115901c8:	aa0d03ec 	mov	x12, x13
+ffff8000115901cc:	aa07018c 	orr	x12, x12, x7
+ffff8000115901d0:	f82a780c 	str	x12, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0, x10, lsl &lt;span class=&quot;c&quot;&gt;#3]&lt;/span&gt;
+ffff8000115901d4:	914801ad 	add	x13, x13, &lt;span class=&quot;c&quot;&gt;#0x200, lsl #12&lt;/span&gt;
+ffff8000115901d8:	9100054a 	add	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff8000115901dc:	eb0b015f 	cmp	x10, x11
+ffff8000115901e0:	54ffff49 	b.ls	ffff8000115901c8 &amp;lt;__create_page_tables+0x188&amp;gt;  // b.plast
+ffff8000115901e4:	b00047e0 	adrp	x0, ffff800011e8d000 &amp;lt;init_pg_dir&amp;gt;
+ffff8000115901e8:	92cfffe5 	mov	x5, &lt;span class=&quot;c&quot;&gt;#0xffff8000ffffffff    	// #-140733193388033&lt;/span&gt;
+ffff8000115901ec:	f2a20005 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0x1000, lsl #16&lt;/span&gt;
+ffff8000115901f0:	f2800005 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0x0&lt;/span&gt;
+ffff8000115901f4:	8b1700a5 	add	x5, x5, x23
+ffff8000115901f8:	d2804004 	mov	x4, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff8000115901fc:	90004886 	adrp	x6, ffff800011ea0000 &amp;lt;_end&amp;gt;
+ffff800011590200:	90ff5383 	adrp	x3, ffff800010000000 &amp;lt;_text&amp;gt;
+ffff800011590204:	cb0300c6 	sub	x6, x6, x3
+ffff800011590208:	8b0500c6 	add	x6, x6, x5
+ffff80001159020c:	91400401 	add	x1, x0, &lt;span class=&quot;c&quot;&gt;#0x1, lsl #12&lt;/span&gt;
+ffff800011590210:	aa0103ee 	mov	x14, x1
+ffff800011590214:	d280000d 	mov	x13, &lt;span class=&quot;c&quot;&gt;#0x0                   	// #0&lt;/span&gt;
+ffff800011590218:	d367fccb 	lsr	x11, x6, &lt;span class=&quot;c&quot;&gt;#39&lt;/span&gt;
+ffff80001159021c:	aa0403ea 	mov	x10, x4
+ffff800011590220:	d100054a 	sub	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590224:	8a0a016b 	and	x11, x11, x10
+ffff800011590228:	aa0403ea 	mov	x10, x4
+ffff80001159022c:	9b0d7d4a 	mul	x10, x10, x13
+ffff800011590230:	8b0a016b 	add	x11, x11, x10
+ffff800011590234:	d367fcaa 	lsr	x10, x5, &lt;span class=&quot;c&quot;&gt;#39&lt;/span&gt;
+ffff800011590238:	aa0403ed 	mov	x13, x4
+ffff80001159023c:	d10005ad 	sub	x13, x13, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590240:	8a0d014a 	and	x10, x10, x13
+ffff800011590244:	cb0a016d 	sub	x13, x11, x10
+ffff800011590248:	aa0103ec 	mov	x12, x1
+ffff80001159024c:	b240058c 	orr	x12, x12, &lt;span class=&quot;c&quot;&gt;#0x3&lt;/span&gt;
+ffff800011590250:	f82a780c 	str	x12, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0, x10, lsl &lt;span class=&quot;c&quot;&gt;#3]&lt;/span&gt;
+ffff800011590254:	91400421 	add	x1, x1, &lt;span class=&quot;c&quot;&gt;#0x1, lsl #12&lt;/span&gt;
+ffff800011590258:	9100054a 	add	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff80001159025c:	eb0b015f 	cmp	x10, x11
+ffff800011590260:	54ffff49 	b.ls	ffff800011590248 &amp;lt;__create_page_tables+0x208&amp;gt;  // b.plast
+ffff800011590264:	aa0e03e0 	mov	x0, x14
+ffff800011590268:	aa0103ee 	mov	x14, x1
+ffff80001159026c:	d35efccb 	lsr	x11, x6, &lt;span class=&quot;c&quot;&gt;#30&lt;/span&gt;
+ffff800011590270:	d280400a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff800011590274:	d100054a 	sub	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590278:	8a0a016b 	and	x11, x11, x10
+ffff80001159027c:	d280400a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff800011590280:	9b0d7d4a 	mul	x10, x10, x13
+ffff800011590284:	8b0a016b 	add	x11, x11, x10
+ffff800011590288:	d35efcaa 	lsr	x10, x5, &lt;span class=&quot;c&quot;&gt;#30&lt;/span&gt;
+ffff80001159028c:	d280400d 	mov	x13, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff800011590290:	d10005ad 	sub	x13, x13, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590294:	8a0d014a 	and	x10, x10, x13
+ffff800011590298:	cb0a016d 	sub	x13, x11, x10
+ffff80001159029c:	aa0103ec 	mov	x12, x1
+ffff8000115902a0:	b240058c 	orr	x12, x12, &lt;span class=&quot;c&quot;&gt;#0x3&lt;/span&gt;
+ffff8000115902a4:	f82a780c 	str	x12, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0, x10, lsl &lt;span class=&quot;c&quot;&gt;#3]&lt;/span&gt;
+ffff8000115902a8:	91400421 	add	x1, x1, &lt;span class=&quot;c&quot;&gt;#0x1, lsl #12&lt;/span&gt;
+ffff8000115902ac:	9100054a 	add	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff8000115902b0:	eb0b015f 	cmp	x10, x11
+ffff8000115902b4:	54ffff49 	b.ls	ffff80001159029c &amp;lt;__create_page_tables+0x25c&amp;gt;  // b.plast
+ffff8000115902b8:	aa0e03e0 	mov	x0, x14
+ffff8000115902bc:	d355fccb 	lsr	x11, x6, &lt;span class=&quot;c&quot;&gt;#21&lt;/span&gt;
+ffff8000115902c0:	d280400a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff8000115902c4:	d100054a 	sub	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff8000115902c8:	8a0a016b 	and	x11, x11, x10
+ffff8000115902cc:	d280400a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff8000115902d0:	9b0d7d4a 	mul	x10, x10, x13
+ffff8000115902d4:	8b0a016b 	add	x11, x11, x10
+ffff8000115902d8:	d355fcaa 	lsr	x10, x5, &lt;span class=&quot;c&quot;&gt;#21&lt;/span&gt;
+ffff8000115902dc:	d280400d 	mov	x13, &lt;span class=&quot;c&quot;&gt;#0x200                 	// #512&lt;/span&gt;
+ffff8000115902e0:	d10005ad 	sub	x13, x13, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff8000115902e4:	8a0d014a 	and	x10, x10, x13
+ffff8000115902e8:	cb0a016d 	sub	x13, x11, x10
+ffff8000115902ec:	926ba86d 	and	x13, x3, &lt;span class=&quot;c&quot;&gt;#0xffffffffffe00000&lt;/span&gt;
+ffff8000115902f0:	aa0d03ec 	mov	x12, x13
+ffff8000115902f4:	aa07018c 	orr	x12, x12, x7
+ffff8000115902f8:	f82a780c 	str	x12, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x0, x10, lsl &lt;span class=&quot;c&quot;&gt;#3]&lt;/span&gt;
+ffff8000115902fc:	914801ad 	add	x13, x13, &lt;span class=&quot;c&quot;&gt;#0x200, lsl #12&lt;/span&gt;
+ffff800011590300:	9100054a 	add	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800011590304:	eb0b015f 	cmp	x10, x11
+ffff800011590308:	54ffff49 	b.ls	ffff8000115902f0 &amp;lt;__create_page_tables+0x2b0&amp;gt;  // b.plast
+ffff80001159030c:	d5033fbf 	dmb	sy
+ffff800011590310:	90ffff60 	adrp	x0, ffff80001157c000 &amp;lt;__end_rodata&amp;gt;
+ffff800011590314:	f0ffff61 	adrp	x1, ffff80001157f000 &amp;lt;idmap_pg_end&amp;gt;
+ffff800011590318:	cb000021 	sub	x1, x1, x0
+ffff80001159031c:	97aa9948 	bl	ffff80001003683c &amp;lt;__inval_dcache_area&amp;gt;
+ffff800011590320:	b00047e0 	adrp	x0, ffff800011e8d000 &amp;lt;init_pg_dir&amp;gt;
+ffff800011590324:	d0004801 	adrp	x1, ffff800011e92000 &amp;lt;init_pg_end&amp;gt;
+ffff800011590328:	cb000021 	sub	x1, x1, x0
+ffff80001159032c:	97aa9944 	bl	ffff80001003683c &amp;lt;__inval_dcache_area&amp;gt;
+ffff800011590330:	d65f0380 	ret	x28
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; __cpu_setup$&quot;&lt;/span&gt; System.map
+ffff800010e0c6ec T __cpu_setup
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010e0c6ec &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010e0c800 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff800010e0c6ec &amp;lt;__cpu_setup&amp;gt;:
+ffff800010e0c6ec:	d503245f 	bti	c
+ffff800010e0c6f0:	d508871f 	tlbi	vmalle1
+ffff800010e0c6f4:	d503379f 	dsb	nsh
+ffff800010e0c6f8:	d2a00601 	mov	x1, &lt;span class=&quot;c&quot;&gt;#0x300000              	// #3145728&lt;/span&gt;
+ffff800010e0c6fc:	d5181041 	msr	cpacr_el1, x1
+ffff800010e0c700:	d2820001 	mov	x1, &lt;span class=&quot;c&quot;&gt;#0x1000                	// #4096&lt;/span&gt;
+ffff800010e0c704:	d5100241 	msr	mdscr_el1, x1
+ffff800010e0c708:	d5033fdf 	isb
+ffff800010e0c70c:	d50348ff 	msr	daifclr, &lt;span class=&quot;c&quot;&gt;#0x8&lt;/span&gt;
+ffff800010e0c710:	d5380501 	mrs	x1, id_aa64dfr0_el1
+ffff800010e0c714:	93482c21 	sbfx	x1, x1, &lt;span class=&quot;c&quot;&gt;#8, #4&lt;/span&gt;
+ffff800010e0c718:	f100043f 	cmp	x1, &lt;span class=&quot;c&quot;&gt;#0x1&lt;/span&gt;
+ffff800010e0c71c:	5400004b 	b.lt	ffff800010e0c724 &amp;lt;__cpu_setup+0x38&amp;gt;  // b.tstop
+ffff800010e0c720:	d51b9e1f 	msr	pmuserenr_el0, xzr
+ffff800010e0c724:	d5380401 	mrs	x1, id_aa64pfr0_el1
+ffff800010e0c728:	d36cbc21 	ubfx	x1, x1, &lt;span class=&quot;c&quot;&gt;#44, #4&lt;/span&gt;
+ffff800010e0c72c:	b4000041 	cbz	x1, ffff800010e0c734 &amp;lt;__cpu_setup+0x48&amp;gt;
+ffff800010e0c730:	d51bd27f 	msr	s3_3_c13_c2_3, xzr
+ffff800010e0c734:	d2e00185 	mov	x5, &lt;span class=&quot;c&quot;&gt;#0xc000000000000       	// #3377699720527872&lt;/span&gt;
+ffff800010e0c738:	f2c08005 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0x400, lsl #32&lt;/span&gt;
+ffff800010e0c73c:	f2b76885 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0xbb44, lsl #16&lt;/span&gt;
+ffff800010e0c740:	f29fffe5 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0xffff&lt;/span&gt;
+ffff800010e0c744:	d538042a 	mrs	x10, id_aa64pfr1_el1
+ffff800010e0c748:	d3482d4a 	ubfx	x10, x10, &lt;span class=&quot;c&quot;&gt;#8, #4&lt;/span&gt;
+ffff800010e0c74c:	f100095f 	cmp	x10, &lt;span class=&quot;c&quot;&gt;#0x2&lt;/span&gt;
+ffff800010e0c750:	540000eb 	b.lt	ffff800010e0c76c &amp;lt;__cpu_setup+0x80&amp;gt;  // b.tstop
+ffff800010e0c754:	d2801e0a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0xf0                  	// #240&lt;/span&gt;
+ffff800010e0c758:	b3781d45 	bfi	x5, x10, &lt;span class=&quot;c&quot;&gt;#8, #8&lt;/span&gt;
+ffff800010e0c75c:	b24043ea 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x1ffff               	// #131071&lt;/span&gt;
+ffff800010e0c760:	d51810ca 	msr	gcr_el1, x10
+ffff800010e0c764:	d518561f 	msr	tfsr_el1, xzr
+ffff800010e0c768:	d518563f 	msr	tfsre0_el1, xzr
+ffff800010e0c76c:	d518a205 	msr	mair_el1, x5
+ffff800010e0c770:	d2e0080a 	mov	x10, &lt;span class=&quot;c&quot;&gt;#0x40000000000000      	// #18014398509481984&lt;/span&gt;
+ffff800010e0c774:	f2c0060a 	movk	x10, &lt;span class=&quot;c&quot;&gt;#0x30, lsl #32&lt;/span&gt;
+ffff800010e0c778:	f2b6aa0a 	movk	x10, &lt;span class=&quot;c&quot;&gt;#0xb550, lsl #16&lt;/span&gt;
+ffff800010e0c77c:	f286a20a 	movk	x10, &lt;span class=&quot;c&quot;&gt;#0x3510&lt;/span&gt;
+ffff800010e0c780:	d5380009 	mrs	x9, midr_el1
+ffff800010e0c784:	92a00205 	mov	x5, &lt;span class=&quot;c&quot;&gt;#0xffffffffffefffff    	// #-1048577&lt;/span&gt;
+ffff800010e0c788:	f29fffe5 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0xffff&lt;/span&gt;
+ffff800010e0c78c:	8a050129 	and	x9, x9, x5
+ffff800010e0c790:	d2a8c1e5 	mov	x5, &lt;span class=&quot;c&quot;&gt;#0x460f0000            	// #1175388160&lt;/span&gt;
+ffff800010e0c794:	f2800205 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0x10&lt;/span&gt;
+ffff800010e0c798:	eb05013f 	cmp	x9, x5
+ffff800010e0c79c:	540000c1 	b.ne	ffff800010e0c7b4 &amp;lt;__cpu_setup+0xc8&amp;gt;  // b.any
+ffff800010e0c7a0:	d2e00c05 	mov	x5, &lt;span class=&quot;c&quot;&gt;#0x60000000000000      	// #27021597764222976&lt;/span&gt;
+ffff800010e0c7a4:	f2c00005 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0x0, lsl #32&lt;/span&gt;
+ffff800010e0c7a8:	f2a00005 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0x0, lsl #16&lt;/span&gt;
+ffff800010e0c7ac:	f2800005 	movk	x5, &lt;span class=&quot;c&quot;&gt;#0x0&lt;/span&gt;
+ffff800010e0c7b0:	8a25014a 	bic	x10, x10, x5
+ffff800010e0c7b4:	f0006ac9 	adrp	x9, ffff800011b67000 &amp;lt;__compound_literal.18+0x10&amp;gt;
+ffff800010e0c7b8:	f9422d29 	ldr	x9, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x9, &lt;span class=&quot;c&quot;&gt;#1112]&lt;/span&gt;
+ffff800010e0c7bc:	b340152a 	bfxil	x10, x9, &lt;span class=&quot;c&quot;&gt;#0, #6&lt;/span&gt;
+ffff800010e0c7c0:	d5380705 	mrs	x5, id_aa64mmfr0_el1
+ffff800010e0c7c4:	d34008a5 	ubfx	x5, x5, &lt;span class=&quot;c&quot;&gt;#0, #3&lt;/span&gt;
+ffff800010e0c7c8:	d28000a6 	mov	x6, &lt;span class=&quot;c&quot;&gt;#0x5                   	// #5&lt;/span&gt;
+ffff800010e0c7cc:	eb0600bf 	cmp	x5, x6
+ffff800010e0c7d0:	9a8580c5 	csel	x5, x6, x5, hi  // hi &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; pmore
+ffff800010e0c7d4:	b36008aa 	bfi	x10, x5, &lt;span class=&quot;c&quot;&gt;#32, #3&lt;/span&gt;
+ffff800010e0c7d8:	d5380729 	mrs	x9, id_aa64mmfr1_el1
+ffff800010e0c7dc:	92400d29 	and	x9, x9, &lt;span class=&quot;c&quot;&gt;#0xf&lt;/span&gt;
+ffff800010e0c7e0:	b4000049 	cbz	x9, ffff800010e0c7e8 &amp;lt;__cpu_setup+0xfc&amp;gt;
+ffff800010e0c7e4:	b259014a 	orr	x10, x10, &lt;span class=&quot;c&quot;&gt;#0x8000000000&lt;/span&gt;
+ffff800010e0c7e8:	d518204a 	msr	tcr_el1, x10
+ffff800010e0c7ec:	d2c18400 	mov	x0, &lt;span class=&quot;c&quot;&gt;#0xc2000000000         	// #13331578486784&lt;/span&gt;
+ffff800010e0c7f0:	f2a69e80 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0x34f4, lsl #16&lt;/span&gt;
+ffff800010e0c7f4:	f29b23a0 	movk	x0, &lt;span class=&quot;c&quot;&gt;#0xd91d&lt;/span&gt;
+ffff800010e0c7f8:	d65f03c0 	ret
+ffff800010e0c7fc:	d51cd04d 	msr	tpidr_el2, x13
+ffff800010e0c800:	d518c13f 	msr	disr_el1, xzr
+ffff800010e0c804:	d281bd01 	mov	x1, &lt;span class=&quot;c&quot;&gt;#0xde8                 	// #3560&lt;/span&gt;
+ffff800010e0c808:	8b0101c1 	add	x1, x14, x1
+ffff800010e0c80c:	a9400c22 	ldp	x2, x3, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x1]
+ffff800010e0c810:	d5182102 	msr	apiakeylo_el1, x2
+ffff800010e0c814:	d5182123 	msr	apiakeyhi_el1, x3
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; __primary_switch$&quot;&lt;/span&gt; System.map
+ffff800010e0c37c t __primary_switch
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;aarch64-linux-gnu-objdump &lt;span class=&quot;nt&quot;&gt;--start-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010e0c37c &lt;span class=&quot;nt&quot;&gt;--stop-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0xffff800010e0c500 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; vmlinux
+ffff800010e0c37c &amp;lt;__primary_switch&amp;gt;:
+ffff800010e0c37c:	d503245f 	bti	c
+ffff800010e0c380:	aa0003f3 	mov	x19, x0
+ffff800010e0c384:	d5381014 	mrs	x20, sctlr_el1
+ffff800010e0c388:	b0008401 	adrp	x1, ffff800011e8d000 &amp;lt;init_pg_dir&amp;gt;
+ffff800010e0c38c:	97ffffc6 	bl	ffff800010e0c2a4 &amp;lt;__enable_mmu&amp;gt;
+ffff800010e0c390:	97ffffe8 	bl	ffff800010e0c330 &amp;lt;__relocate_kernel&amp;gt;
+ffff800010e0c394:	580002e8 	ldr	x8, ffff800010e0c3f0 &amp;lt;__primary_switch+0x74&amp;gt;
+ffff800010e0c398:	90ff8fa0 	adrp	x0, ffff800010000000 &amp;lt;_text&amp;gt;
+ffff800010e0c39c:	d63f0100 	blr	x8
+ffff800010e0c3a0:	d5033fdf 	isb
+ffff800010e0c3a4:	d5181014 	msr	sctlr_el1, x20
+ffff800010e0c3a8:	d5033fdf 	isb
+ffff800010e0c3ac:	941e0f25 	bl	ffff800011590040 &amp;lt;__create_page_tables&amp;gt;
+ffff800010e0c3b0:	d508871f 	tlbi	vmalle1
+ffff800010e0c3b4:	d503379f 	dsb	nsh
+ffff800010e0c3b8:	d5181013 	msr	sctlr_el1, x19
+ffff800010e0c3bc:	d5033fdf 	isb
+ffff800010e0c3c0:	d508751f 	ic	iallu
+ffff800010e0c3c4:	d503379f 	dsb	nsh
+ffff800010e0c3c8:	d5033fdf 	isb
+ffff800010e0c3cc:	97ffffd9 	bl	ffff800010e0c330 &amp;lt;__relocate_kernel&amp;gt;
+ffff800010e0c3d0:	58000108 	ldr	x8, ffff800010e0c3f0 &amp;lt;__primary_switch+0x74&amp;gt;
+ffff800010e0c3d4:	90ff8fa0 	adrp	x0, ffff800010000000 &amp;lt;_text&amp;gt;
+ffff800010e0c3d8:	d61f0100 	br	x8
+ffff800010e0c3dc:	016e2e20 	.word	0x016e2e20
+ffff800010e0c3e0:	0045f8e8 	.word	0x0045f8e8
+	...
+ffff800010e0c3f8:	d503201f 	nop
+ffff800010e0c3fc:	00000000 	udf	&lt;span class=&quot;c&quot;&gt;#0&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>fehead</name></author><category term="linux" /><category term="kernel" /><category term="iamroot" /><summary type="html">linux kernel 가져오기 $ mkdir -p ~/git $ cd ~/git $ git clone -b mnth https://github.com/iamroot18/5.10.git</summary></entry><entry><title type="html">ARM64 리눅스 커널 소스 분석 준비</title><link href="https://fehead.github.io//linux/kernel/prepare-linux-kernel-analysis/" rel="alternate" type="text/html" title="ARM64 리눅스 커널 소스 분석 준비" /><published>2021-07-06T21:15:00+09:00</published><updated>2021-07-06T21:15:00+09:00</updated><id>https://fehead.github.io//linux/kernel/prepare-linux-kernel-analysis</id><content type="html" xml:base="https://fehead.github.io//linux/kernel/prepare-linux-kernel-analysis/">&lt;h1 id=&quot;리눅스-커널-소스-분석-준비&quot;&gt;리눅스 커널 소스 분석 준비&lt;/h1&gt;
+
+&lt;h2 id=&quot;소스-분석-프로그램-설치&quot;&gt;소스 분석 프로그램 설치&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;vim, git, ctags, cscope&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Debian 계열&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;vim git ctags cscope
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ArchLinux 계열&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pacman &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; vim git ctags cscope
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;linux-kernel-가져오기&quot;&gt;linux kernel 가져오기&lt;/h2&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; ~/git
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/iamroot18/5.10.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;vim-설정&quot;&gt;vim 설정&lt;/h2&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim ~/.vimrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&quot; .vimrc&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;diffopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt;iwhite
+&lt;span class=&quot;c&quot;&gt;&quot;============ kernel source 경로 ===========&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; kernel_src_home&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;$PWD
+
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;nu&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ai&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;si&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ci&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hlsearch&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nocompatible&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;fileencodings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;utf&lt;span class=&quot;m&quot;&gt;-8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;euc&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;kr
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;history&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ruler&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nobackup&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;title&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;showmatch&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nowrap&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;wmnu&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;	&quot;&lt;span class=&quot;k&quot;&gt;last&lt;/span&gt; statusbar
+
+&lt;span class=&quot;nb&quot;&gt;syntax&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;cc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;	&quot; &lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;라인 컬럼 표시
+
+&lt;span class=&quot;k&quot;&gt;colorscheme&lt;/span&gt; ron	&quot; theme
+
+&lt;span class=&quot;c&quot;&gt;&quot;============= vim 창 크기 조절 ============&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&quot;nmap &amp;lt;s-h&amp;gt; &amp;lt;C-W&amp;gt;&amp;lt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&quot;nmap &amp;lt;s-j&amp;gt; &amp;lt;C-W&amp;gt;-&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&quot;nmap &amp;lt;s-k&amp;gt; &amp;lt;C-W&amp;gt;+&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&quot;nmap &amp;lt;s-l&amp;gt; &amp;lt;C-W&amp;gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&quot;============= vim 창이동 ============&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;k&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;j&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;h&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;l&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&quot;===== 버퍼간 이동&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;bn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; Next File Buffer
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;z &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;bp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; Previous File Buffer
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;bw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Close Current File Buffer
+
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;	  &quot; Switch &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; File Buffer #&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;&quot;============ ctags, scope 경로 ===========&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;filereadable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;kernel_src_home &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/cscope.out&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;	&quot;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F8&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;일반용&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F9&lt;span class=&quot;p&quot;&gt;&amp;gt;:&lt;/span&gt;커널 분석용
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;set tags+=&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; kernel_src_home &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/tags&quot;&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;cscope add &quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; kernel_src_home &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/cscope.out&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;csprg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/usr/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bin&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;cscope&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nocsverb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;csverb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;csto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;csre&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cst&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;&quot;============= ctags 설정 ============&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;500&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&quot;수평 분할 태그 점프(tag jump)&lt;/span&gt;
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; Sts&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;st&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;cword&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;sts &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;st&lt;/span&gt;
+endfunc
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;st&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; Sts&lt;span class=&quot;p&quot;&gt;()&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&quot;새 버퍼로 태그 점프(tag jump)&lt;/span&gt;
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; Tj&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;st&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;cword&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;tj &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;st&lt;/span&gt;
+endfunc
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;tj&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; Tj&lt;span class=&quot;p&quot;&gt;()&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt;
+
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;tp&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;tp&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;   &quot; 이전 태그로 이동
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;tn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;tn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;   &quot; 다음 태그로 이동
+
+&lt;span class=&quot;c&quot;&gt;&quot;============= cscope 설정 ===========&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&quot;Find this C Symbol&lt;/span&gt;
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; Css&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; css &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;cword&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;cs find s &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;css
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+		exe &lt;span class=&quot;s2&quot;&gt;&quot;q!&quot;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt;
+endfunc
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;css &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; Css&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&quot;Find functions calling this function&lt;/span&gt;
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; Csc&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; csc &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cword&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;cs find c &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;csc
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+		exe &lt;span class=&quot;s2&quot;&gt;&quot;q!&quot;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt;
+endfunc
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;csc &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; Csc&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&quot;Find functions called by this function&lt;/span&gt;
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; Csd&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; csd &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;cword&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;cs find d &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;csd
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+		exe &lt;span class=&quot;s2&quot;&gt;&quot;q!&quot;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt;
+endfunc
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;csd &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; Csd&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&quot;Find this definition&lt;/span&gt;
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; Csg&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; csg &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;cword&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;cs find g &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;csg
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+		exe &lt;span class=&quot;s2&quot;&gt;&quot;q!&quot;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt;
+endfunc
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;csg &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; Csg&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;   &quot; 이전 태그로 이동
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cn&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;   &quot; 다음 태그로 이동
+
+&lt;span class=&quot;c&quot;&gt;&quot;=============== man page ================&lt;/span&gt;
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; Man&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sm&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;cword&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;!man -S 2:3:4:5:6:7:8:9:tcl:n:l:p:o &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sm&lt;/span&gt;
+endfunc
+
+nmap &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; Man&lt;span class=&quot;p&quot;&gt;()&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;&quot;========= 주석 매크로 ==========&lt;/span&gt;
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; CmtOn&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;	&quot;주석 &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt;
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;&apos;&amp;lt;,&apos;&amp;gt;norm i//&quot;&lt;/span&gt;
+endfunc
+
+func&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; CmtOff&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;	&quot;주석 off
+	exe &lt;span class=&quot;s2&quot;&gt;&quot;&apos;&amp;lt;,&apos;&amp;gt;norm 2x&quot;&lt;/span&gt;
+endfunc
+
+vmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;esc&lt;span class=&quot;p&quot;&gt;&amp;gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; CmtOn&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+vmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;esc&lt;span class=&quot;p&quot;&gt;&amp;gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; CmtOff&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; CmtOn&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; CmtOff&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&quot; visual 클립보드 복사&lt;/span&gt;
+vmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F3&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &quot;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;y&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&quot; 클립보드 내용 붙여 넣기&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F4&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &quot;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;p&lt;/span&gt;
+
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F5&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; IC_AnalyzingCode&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F6&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; IC_DailySummary&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F7&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; IC_FileSummary&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F8&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; A&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;tab&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;/* IAMROOT&lt;span class=&quot;m&quot;&gt;-12&lt;/span&gt;CD&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+
+&lt;span class=&quot;c&quot;&gt;&quot; 커널분석용 설정&lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F9&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&quot; 일반 문서용 &lt;/span&gt;
+nmap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;F10&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;linux-kernel-tag-생성&quot;&gt;linux kernel tag 생성&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;make_tags.sh 스크립트 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git/5.10
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim make_tags.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;TAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tags&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;emacs&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;then
+	&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TAGS&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi
+
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;make &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TAGS&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; ARCH=arm64&quot;&lt;/span&gt;
+make &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TAGS&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ARCH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm64 &amp;amp;
+&lt;span class=&quot;nv&quot;&gt;TAGS_PID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$!&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;make cscope ARCH=arm64&quot;&lt;/span&gt;
+make cscope &lt;span class=&quot;nv&quot;&gt;ARCH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;arm64 &amp;amp;
+&lt;span class=&quot;nv&quot;&gt;CS_PID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$!&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;wait&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TAGS_PID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CS_PID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;make_tags.sh 실행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +x make_tags.sh
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./make_tags.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;arm64-리눅스-커널-분석-시작&quot;&gt;ARM64 리눅스 커널 분석 시작&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;vim 실행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/git/5.10
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;vim에서 tags 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;ts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;알고 싶은 함수나 전역변수&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 파일명&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+# 예제 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;아래의 경우 &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;ts&lt;/span&gt; task_str 입력후 TAB키를 누르면 자동 완성됨&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;ts&lt;/span&gt; task_struct
+
+# 원위치리로 오고 싶으면 ctrl &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; T 를 누르면 원위치로 돌아옴&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+
+# 커서가 있는 함수나&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 전역변수&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; struct를 알고 싶으면 해당 커서위에서
+# ctrl &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 를 누른다
+
+
+# ctrl &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; ctrl &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; T 는 쌍을 이룸
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;vim에서 cscope 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;find&lt;/span&gt; s &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;알고 싶은 함수나 전역변수&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 파일명&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;f&lt;/span&gt; s &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;알고 싶은 함수나 전역변수&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 파일명&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+# 예제
+&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;f&lt;/span&gt; s thread_info
+
+&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt; 형태로 정확하게 찾기 원할때&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+# 예제 &lt;span class=&quot;s2&quot;&gt;&quot;struct thread_info {&quot;&lt;/span&gt; 를 정확하게 찾기 원할때
+&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;cs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;e&lt;/span&gt; struct thread_info &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+# ctrl &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; T 를누르면 원위치로 돌아온다&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;참조사이트&quot;&gt;참조사이트&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/norux/iamroot_utils&quot;&gt;Iamroot ARM Kernel 분석 12차 D조&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jake.dothome.co.kr/&quot;&gt;문c 블로그&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.notion.so/PR1ME-s-Blog-21ccc53f274a4a728ee2a5c9bb3baa8c&quot;&gt;류호은님 블로그&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>fehead</name></author><category term="linux" /><category term="kernel" /><summary type="html">리눅스 커널 소스 분석 준비</summary></entry><entry><title type="html">github.io blog 만들기</title><link href="https://fehead.github.io//github/test-post/" rel="alternate" type="text/html" title="github.io blog 만들기" /><published>2021-07-06T03:43:00+09:00</published><updated>2021-07-06T03:43:00+09:00</updated><id>https://fehead.github.io//github/test-post</id><content type="html" xml:base="https://fehead.github.io//github/test-post/">&lt;h1 id=&quot;githubio-블로그-만들기&quot;&gt;github.io 블로그 만들기&lt;/h1&gt;
+
+&lt;h2 id=&quot;github-site-repository-만들기&quot;&gt;github site repository 만들기&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;{자신의 github ID}.github.io repository 만들기&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;프로그램-설치&quot;&gt;프로그램 설치&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;git, ruby 설치
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git ruby
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;jekyll, bundler, webrick 설치
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jekyll bundler webrick
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local/share/gem/ruby/3.0.0/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;블로그-개설&quot;&gt;블로그 개설&lt;/h2&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget https://github.com/mmistakes/minimal-mistakes/archive/refs/heads/master.zip
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;unzip master.zip 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local/share/gem/ruby/3.0.0/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;참조사이트&quot;&gt;참조사이트&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://velog.io/@zawook/Github-블로그-만들기-1&quot;&gt;Github 블로그 만들기&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://junho85.pe.kr/1850&quot;&gt;webrick 설치&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mmistakes.github.io/minimal-mistakes/&quot;&gt;Github 블로그 테마&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>fehead</name></author><category term="github" /><summary type="html">github.io 블로그 만들기</summary></entry></feed>

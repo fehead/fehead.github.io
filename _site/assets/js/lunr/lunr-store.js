@@ -1,8 +1,8 @@
 var store = [{
         "title": "github.io blog 만들기",
-        "excerpt":"github.io 블로그 만들기 github site repository 만들기 {자신의 github ID}.github.io repository 만들기 프로그램 설치 git, ruby 설치 $ sudo apt install git ruby jekyll, bundler, webrick 설치 $ gem install jekyll bundler webrick $ export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin 블로그 개설 $ wget https://github.com/mmistakes/minimal-mistakes/archive/refs/heads/master.zip $ unzip master.zip $ export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin 참조사이트 Github 블로그...","categories": ["github"],
+        "excerpt":"github.io 블로그 만들기 github site repository 만들기 {자신의 github ID}.github.io repository 만들기 프로그램 설치 git, ruby 설치 $ sudo apt install git ruby jekyll, bundler, webrick 설치 $ gem install jekyll bundler webrick $ export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin 블로그 개설 $ wget https://github.com/mmistakes/minimal-mistakes/archive/refs/heads/master.zip $ unzip master.zip $ export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin $ bundle exec...","categories": ["github","github.io","blog"],
         "tags": [],
-        "url": "/github/test-post/",
+        "url": "/github/github.io/blog/test-post/",
         "teaser": null
       },{
         "title": "ARM64 리눅스 커널 소스 분석 준비",

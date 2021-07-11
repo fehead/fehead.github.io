@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://fehead.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://fehead.github.io//" rel="alternate" type="text/html" /><updated>2021-07-10T22:07:02+09:00</updated><id>https://fehead.github.io//feed.xml</id><title type="html">FeHead</title><subtitle>Linux Kernel</subtitle><author><name>fehead</name></author><entry><title type="html">IAMROOT 18차 스터디 7차</title><link href="https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th/" rel="alternate" type="text/html" title="IAMROOT 18차 스터디 7차" /><published>2021-07-11T00:23:00+09:00</published><updated>2021-07-11T00:23:00+09:00</updated><id>https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th</id><content type="html" xml:base="https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th/">&lt;h1 id=&quot;arm-system-developers-guide&quot;&gt;ARM System Developer’s Guide&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://fehead.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://fehead.github.io//" rel="alternate" type="text/html" /><updated>2021-07-11T12:31:02+09:00</updated><id>https://fehead.github.io//feed.xml</id><title type="html">FeHead</title><subtitle>Linux Kernel</subtitle><author><name>fehead</name></author><entry><title type="html">IAMROOT 18차 스터디 7차</title><link href="https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th/" rel="alternate" type="text/html" title="IAMROOT 18차 스터디 7차" /><published>2021-07-11T00:23:00+09:00</published><updated>2021-07-11T00:23:00+09:00</updated><id>https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th</id><content type="html" xml:base="https://fehead.github.io//linux/kernel/iamroot/iamroot18-7th/">&lt;h1 id=&quot;arm-system-developers-guide&quot;&gt;ARM System Developer’s Guide&lt;/h1&gt;
 
 &lt;h2 id=&quot;1장-arm-embedded-systems&quot;&gt;1장 ARM Embedded Systems&lt;/h2&gt;
 &lt;h3 id=&quot;cisc-vs-risc&quot;&gt;CISC vs RISC&lt;/h3&gt;
@@ -1086,7 +1086,7 @@ make cscope &lt;span class=&quot;nv&quot;&gt;ARCH&lt;/span&gt;&lt;span class=&qu
   &lt;li&gt;&lt;a href=&quot;https://github.com/norux/iamroot_utils&quot;&gt;Iamroot ARM Kernel 분석 12차 D조&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://jake.dothome.co.kr/&quot;&gt;문c 블로그&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.notion.so/PR1ME-s-Blog-21ccc53f274a4a728ee2a5c9bb3baa8c&quot;&gt;류호은님 블로그&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>fehead</name></author><category term="linux" /><category term="kernel" /><summary type="html">리눅스 커널 소스 분석 준비</summary></entry><entry><title type="html">github.io blog 만들기</title><link href="https://fehead.github.io//github/test-post/" rel="alternate" type="text/html" title="github.io blog 만들기" /><published>2021-07-06T03:43:00+09:00</published><updated>2021-07-06T03:43:00+09:00</updated><id>https://fehead.github.io//github/test-post</id><content type="html" xml:base="https://fehead.github.io//github/test-post/">&lt;h1 id=&quot;githubio-블로그-만들기&quot;&gt;github.io 블로그 만들기&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>fehead</name></author><category term="linux" /><category term="kernel" /><summary type="html">리눅스 커널 소스 분석 준비</summary></entry><entry><title type="html">github.io blog 만들기</title><link href="https://fehead.github.io//github/github.io/blog/test-post/" rel="alternate" type="text/html" title="github.io blog 만들기" /><published>2021-07-06T03:43:00+09:00</published><updated>2021-07-06T03:43:00+09:00</updated><id>https://fehead.github.io//github/github.io/blog/test-post</id><content type="html" xml:base="https://fehead.github.io//github/github.io/blog/test-post/">&lt;h1 id=&quot;githubio-블로그-만들기&quot;&gt;github.io 블로그 만들기&lt;/h1&gt;
 
 &lt;h2 id=&quot;github-site-repository-만들기&quot;&gt;github site repository 만들기&lt;/h2&gt;
 
@@ -1111,6 +1111,18 @@ make cscope &lt;span class=&quot;nv&quot;&gt;ARCH&lt;/span&gt;&lt;span class=&qu
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget https://github.com/mmistakes/minimal-mistakes/archive/refs/heads/master.zip
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;unzip master.zip 
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.local/share/gem/ruby/3.0.0/bin
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+Configuration file: /home/fehead/git/fehead.github.io/_config.yml
+            Source: /home/fehead/git/fehead.github.io
+       Destination: /home/fehead/git/fehead.github.io/_site
+ Incremental build: disabled. Enable with &lt;span class=&quot;nt&quot;&gt;--incremental&lt;/span&gt;
+      Generating...
+       Jekyll Feed: Generating feed &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;posts
+                    &lt;span class=&quot;k&quot;&gt;done in &lt;/span&gt;0.477 seconds.
+ Auto-regeneration: enabled &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;/home/fehead/git/fehead.github.io&apos;&lt;/span&gt;
+    Server address: http://127.0.0.1:4000
+  Server running... press ctrl-c to stop.
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;참조사이트&quot;&gt;참조사이트&lt;/h1&gt;
@@ -1118,4 +1130,5 @@ make cscope &lt;span class=&quot;nv&quot;&gt;ARCH&lt;/span&gt;&lt;span class=&qu
   &lt;li&gt;&lt;a href=&quot;https://velog.io/@zawook/Github-블로그-만들기-1&quot;&gt;Github 블로그 만들기&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://junho85.pe.kr/1850&quot;&gt;webrick 설치&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://mmistakes.github.io/minimal-mistakes/&quot;&gt;Github 블로그 테마&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>fehead</name></author><category term="github" /><summary type="html">github.io 블로그 만들기</summary></entry></feed>
+  &lt;li&gt;&lt;a href=&quot;https://www.hahwul.com/2020/08/08/jekyll-utterances/&quot;&gt;Github.io 댓글 적용&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>fehead</name></author><category term="github" /><category term="github.io" /><category term="blog" /><summary type="html">github.io 블로그 만들기</summary></entry></feed>

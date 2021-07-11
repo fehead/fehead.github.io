@@ -26,6 +26,6 @@ var store = [{
         "title": "ARM64 head.S 분석 1",
         "excerpt":"ARM64 linux 5.10 kernel 분석 head.S 분석 1 head.S 파일 들어가기 $ vim :ts head.S 76 /* 77 * Kernel startup entry point. 78 * --------------------------- 79 * 80 * The requirements are: 81 * MMU = off, D-cache = off, I-cache = on or off, 82 * x0 =...","categories": ["arm64","kernel"],
         "tags": [],
-        "url": "/arm64/kernel/arm64-head.S/",
+        "url": "/arm64/kernel/arm64-head.S-1/",
         "teaser": null
       }]
